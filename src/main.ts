@@ -9,6 +9,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'https://coral-backend-s1tf.onrender.com',
+      'https://coral-frontend-u7qi.vercel.app/',
     ],
     credentials: true,
   });
