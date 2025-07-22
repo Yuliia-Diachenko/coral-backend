@@ -60,6 +60,12 @@ export class AuthService {
     });
 
     const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${token}`;
+
+    //for dev only
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🔐 Password reset link:', resetLink);
+    }
+
     await this.mailService.sendPasswordResetEmail(email, resetLink);
   }
 

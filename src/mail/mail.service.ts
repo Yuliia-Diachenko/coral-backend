@@ -7,7 +7,7 @@ export class MailService {
 
   async sendPasswordResetEmail(email: string, resetLink: string) {
     return this.client.sendEmail({
-      From: 'zirkanew82@gmail.com', //  email at Postmark
+      From: 'admin@pearlgpo.com', //  email at Postmark
       To: email,
       Subject: 'Reset your password',
       TextBody: `Click the link below to reset your password:\n\n${resetLink}`,

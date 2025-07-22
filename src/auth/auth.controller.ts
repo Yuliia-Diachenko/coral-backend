@@ -20,9 +20,10 @@ export class AuthController {
   async login(@Req() req) {
     console.log('🤖 req.user =', req.user);
     const user = req.user;
-
-    if (user.role !== 'PROVIDER') {
-      throw new UnauthorizedException('Access is allowed only to providers');
+    if (!['PROVIDER', 'ADMIN', 'PATIENT'].includes(user.role)) {
+      throw new UnauthorizedException(
+        'Access is allowed only to providers, admins or patients',
+      );
     }
 
     return this.authService.login(user);
