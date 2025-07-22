@@ -6,6 +6,7 @@ console.log('Start seed');
 const prisma = new PrismaClient();
 
 async function main() {
+  console.log('👋 Seed is running...');
   const password = await bcrypt.hash('password123', 10);
 
   await prisma.user.createMany({
